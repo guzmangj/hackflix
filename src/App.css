@@ -1,0 +1,77 @@
+body {
+  background-color: rgb(10, 0, 10);
+}
+
+.moviePoster {
+  width: 300px;
+  height: 450px;
+  object-fit: cover;
+}
+
+.moviePoster:hover {
+  box-shadow: 0 5px 15px rgba(67, 52, 73, 0.8);
+}
+
+.main {
+  width: 100%;
+  height: 700px;
+}
+
+video {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  filter: blur(0.3rem);
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 77%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    to top,
+    rgb(10, 0, 10),
+    rgba(153, 0, 255, 0.1)
+  );
+}
+.title {
+  font-size: 5rem;
+}
+
+.bgNav {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(10, 0, 10),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.navHackflix {
+  text-decoration: none;
+  color: orangered;
+  font-weight: bold;
+  font-size: 1.8rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.navHackflix:hover {
+  color: rgb(221, 59, 0);
+}
+
+.navMovies {
+  text-decoration: none;
+  color: rgb(156, 156, 156);
+}
+
+.navMovies:hover {
+  color: rgb(156, 156, 156);
+}
+
+.movieGenre {
+  margin-right: 10px;
+}
