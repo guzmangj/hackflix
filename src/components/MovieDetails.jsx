@@ -55,60 +55,99 @@ function MovieDetails() {
   if (movieData) {
     return (
       <section
-        id="bg-image"
+        id="bgImage"
         style={{
-          height: "100vh",
           backgroundImage: `url("https://image.tmdb.org/t/p/original/${movieData.backdrop_path}")`,
         }}
       >
-        <div className="container pt-5">
-          <div className="row text-light movie-description rounded shadow-lg">
-            <div className="col-5">
-              <div className="py-3">
-                <img
-                  className="img-fluid poster-img"
-                  src={`https://image.tmdb.org/t/p/original/${movieData.poster_path}`}
-                  alt={`${movieData.original_title} poster`}
-                />
-              </div>
-            </div>
-            <div className="col-7 data-column">
-              <div className="py-4">
-                <h1 className="fs-2 fw-bold">
-                  {movieData.original_title} ({movieData.release_date})
-                </h1>
-              </div>
-              <div className="mt-4">
-                <h3 className="m-0 fs-4 fw-bold">Overview:</h3>
-                <p className="m-0 fs-6">{movieData.overview}</p>
-              </div>
-              <div className="mt-4">
-                <h3 className="m-0 fw-bold fs-6">Original language:</h3>
-                <p className="m-0 fs-6">{movieData.original_language}`</p>
-              </div>
-              <div className="mt-4">
-                <h3 className="m-0 fw-bold fs-6">Vote average:</h3>
-                <div className="d-flex align-items-center">
-                  <div>
-                    <p className="m-0 fs-6">{movieData.vote_average}</p>
-                  </div>
-                  <div className="mx-2 mb-1">
-                    <ReactStars
-                      count={5}
-                      value={`${movieData.vote_average / 2 + 1}`}
-                      size={24}
-                      edit={false}
-                      activeColor="#ffd700"
-                    />
-                  </div>
+        <div className="darker">
+          <div className="container pt-5">
+            <div className="row text-light movie-description rounded shadow-lg fade-in">
+              <div className="col-5">
+                <div className="py-3">
+                  <img
+                    className="img-fluid poster-img"
+                    src={`https://image.tmdb.org/t/p/original/${movieData.poster_path}`}
+                    alt={`${movieData.original_title} poster`}
+                  />
                 </div>
               </div>
-              <div className="my-4 mb-5 flex-fill">
-                <h3 className="m-0 fs-6 fw-bold">Genres:</h3>
-                <div className="d-flex">
-                  {movieData.genres.map((genre) => {
-                    return <p className="movieGenre">{genre.name},</p>;
-                  })}
+              <div className="col-7 data-column">
+                <div className="py-4">
+                  <h1 className="fs-2 fw-bold m-0">
+                    {movieData.original_title} ({movieData.release_date})
+                  </h1>
+                  <h4 className="fs-5">{movieData.tagline}</h4>
+                </div>
+                <div className="mt-4">
+                  <h3 className="m-0 fs-4 fw-bold">Overview:</h3>
+                  <p className="m-0 fs-6">{movieData.overview}</p>
+                </div>
+                <div className="mt-4">
+                  <h3 className="m-0 fw-bold fs-6">Original language:</h3>
+                  {movieData.original_language === "en" && (
+                    <p className="m-0 fs-6">English</p>
+                  )}
+                  {movieData.original_language === "cn" && (
+                    <p className="m-0 fs-6">Chinese</p>
+                  )}
+                  {movieData.original_language === "es" && (
+                    <p className="m-0 fs-6">Spanish</p>
+                  )}
+                  {movieData.original_language === "fr" && (
+                    <p className="m-0 fs-6">French</p>
+                  )}
+                  {movieData.original_language === "it" && (
+                    <p className="m-0 fs-6">Italian</p>
+                  )}
+                  {movieData.original_language === "ro" && (
+                    <p className="m-0 fs-6">Romanian</p>
+                  )}
+                  {movieData.original_language === "ja" && (
+                    <p className="m-0 fs-6">Japanese</p>
+                  )}
+                  {movieData.original_language === "zh" && (
+                    <p className="m-0 fs-6">Chinese</p>
+                  )}
+                  {movieData.original_language === "ko" && (
+                    <p className="m-0 fs-6">Korean</p>
+                  )}
+                  {movieData.original_language === "tl" && (
+                    <p className="m-0 fs-6">Tagalog</p>
+                  )}
+                  {movieData.original_language === "de" && (
+                    <p className="m-0 fs-6">German</p>
+                  )}
+                  {movieData.original_language === "pl" && (
+                    <p className="m-0 fs-6">Polish</p>
+                  )}
+                </div>
+                <div className="mt-4">
+                  <h3 className="m-0 fw-bold fs-6">Vote average:</h3>
+                  <div className="d-flex align-items-center">
+                    <div>
+                      <p className="m-0 fs-6">
+                        {Math.round((movieData.vote_average * 10) / 10)} / 10
+                      </p>
+                    </div>
+                    <div className="mx-2 mb-1">
+                      <ReactStars
+                        count={5}
+                        value={`${movieData.vote_average / 2 + 1}`}
+                        size={24}
+                        edit={false}
+                        activeColor="#ffd700"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="my-4 mb-5 flex-fill">
+                  <h3 className="m-0 fs-6 fw-bold">Genres:</h3>
+                  <div className="d-flex">
+                    {movieData.genres.map((genre) => {
+                      return <p className="movieGenre">{genre.name},</p>;
+                    })}
+                  </div>
                 </div>
               </div>
             </div>

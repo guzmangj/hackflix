@@ -16,7 +16,7 @@ function Home() {
         <div className="d-flex justify-content-center">
           <Filter setRating={setRating} />
         </div>
-        <div>
+        <div className="fade-in">
           <Movie rating={rating} movies={movies} setMovies={setMovies} />
         </div>
       </div>
