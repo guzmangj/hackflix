@@ -6,7 +6,7 @@ function Header() {
     <>
       <header>
         <div className="main">
-          <video src={videoBg} autoPlay loop muted />
+          <video className="video-bg" src={videoBg} autoPlay loop muted />
         </div>
         <div className="content text-light">
           <h1 className="title">¡Tus peliculas favoritas!</h1>
