@@ -6,11 +6,12 @@
 #bgImage {
   object-fit: cover;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: auto;
+  background-position: center center;
 }
 
 .data-column {
-  padding-right: 3rem;
+  padding-right: 1.5rem;
 }
 
 .darker {
@@ -56,17 +57,20 @@
   #bgImage {
     object-fit: cover;
     background-repeat: no-repeat;
-    background-size: 103%;
+    background-size: auto;
+    background-position: center center;
   }
   .data-column {
-    padding-right: 0.7rem;
+    padding-right: 1.5rem;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1399px) {
   #bgImage {
     background-image: none !important;
   }
-  .movie-description {
-    height: 725px;
+  .data-column {
+    margin-bottom: 5rem;
   }
+}
+@media (max-width: 1024px) {
 }
