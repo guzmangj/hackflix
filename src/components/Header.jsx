@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import videoBg from "../assets/pexels-tima-miroshnichenko-7985887-4096x2160-25fps.mp4";
+import "./Header.css";
 
 function Header() {
   return (

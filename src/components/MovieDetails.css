@@ -51,3 +51,22 @@
 .trailer-container:hover .bi-play-circle {
   fill: grey;
 }
+
+@media (max-width: 1440px) {
+  #bgImage {
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: 103%;
+  }
+  .data-column {
+    padding-right: 0.7rem;
+  }
+}
+@media (max-width: 1024px) {
+  #bgImage {
+    background-image: none !important;
+  }
+  .movie-description {
+    height: 725px;
+  }
+}

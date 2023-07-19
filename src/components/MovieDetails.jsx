@@ -89,16 +89,21 @@ function MovieDetails() {
         <div className="darker">
           <div className="container pt-5">
             <div className="row text-light movie-description rounded shadow-lg fade-in">
-              <div className="col-5">
-                <div className="py-3">
+              <div className="col-md-12 col-xxl-5">
+                <div className="py-3 poster-img">
                   <img
-                    className="img-fluid poster-img"
+                    className="d-xxl-none img-fluid"
+                    src={`https://image.tmdb.org/t/p/original/${movieData.backdrop_path}`}
+                    alt={`${movieData.original_title} poster`}
+                  />
+                  <img
+                    className="d-none d-xxl-block img-fluid poster-img"
                     src={`https://image.tmdb.org/t/p/original/${movieData.poster_path}`}
                     alt={`${movieData.original_title} poster`}
                   />
                 </div>
               </div>
-              <div className="col-7 data-column">
+              <div className="col-md-12 col-xxl-7 data-column">
                 <div className="py-4">
                   <h1 className="fs-2 fw-bold m-0">
                     {movieData.original_title} ({movieData.release_date})
@@ -151,13 +156,13 @@ function MovieDetails() {
                   </div>
                   <div className="mt-4">
                     <h3 className="m-0 fw-bold fs-6">Vote average:</h3>
-                    <div className="d-flex align-items-center">
+                    <div className="d-xlg-flex align-items-center">
                       <div>
-                        <p className="m-0 fs-6">
+                        <p className="m-0 mt-2 fs-6 text-center">
                           {Math.round((movieData.vote_average * 10) / 10)} / 10
                         </p>
                       </div>
-                      <div className="mx-2 mb-1">
+                      <div className="mx-2 mb-1 d-flex justify-content-center">
                         <ReactStars
                           count={5}
                           value={`${movieData.vote_average / 2 + 1}`}
@@ -170,10 +175,12 @@ function MovieDetails() {
                   </div>
                   <div className="my-4">
                     <h3 className="m-0 fs-6 fw-bold">Genres:</h3>
-                    <div className="d-flex">
-                      {movieData.genres.map((genre) => {
-                        return <p className="movieGenre">{genre.name},</p>;
-                      })}
+                    <div>
+                      <ul className="p-0" style={{ listStyleType: "none" }}>
+                        {movieData.genres.map((genre) => {
+                          return <li className="movieGenre">{genre.name}</li>;
+                        })}
+                      </ul>
                     </div>
                   </div>
                 </div>
