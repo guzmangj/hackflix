@@ -8,7 +8,7 @@ function Filter({ setRating }) {
 
   return (
     <div className="d-flex justify-content-center">
-      <div className="d-flex align-items-center text-light my-3">
+      <div className="d-flex align-items-center text-light mt-3">
         <div className="text-center">
           <p className="m-0">Filtrar por valoración:</p>
         </div>

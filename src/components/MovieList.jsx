@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
+import SearchBar from "./SearchBar";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Link } from "react-router-dom";
 
 function MovieList({ rating, setMovies, movies }) {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
     setPage(1);
@@ -42,6 +44,16 @@ function MovieList({ rating, setMovies, movies }) {
     page > 1 && getMovies();
   }, [page]);
 
+  const updateKeyword = (keyword) => {
+    const filtered = movies.filter((movie) => {
+      return `${movie.original_title.toLowerCase()}`.includes(
+        keyword.toLowerCase()
+      );
+    });
+    setKeyword(keyword);
+    setMovies(filtered);
+  };
+
   return isLoading ? (
     <div className="d-flex justify-content-center align-items-center">
       <Spinner animation="border" role="status" variant="light">
@@ -55,6 +67,9 @@ function MovieList({ rating, setMovies, movies }) {
         next={() => setPage((prevPage) => prevPage + 1)}
         hasMore={true}
       >
+        <div>
+          <SearchBar keyword={keyword} onChange={updateKeyword} />
+        </div>
         <div className="text-center">
           {movies.map((movie, index) => {
             return (
