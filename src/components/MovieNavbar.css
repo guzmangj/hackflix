@@ -1,0 +1,19 @@
+.bgNav {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(10, 0, 10),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.navHackflix {
+  text-decoration: none;
+  color: orangered;
+  font-weight: bold;
+  font-size: 1.8rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.navHackflix:hover {
+  color: rgb(221, 59, 0);
+}

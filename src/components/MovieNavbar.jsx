@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { Link } from "react-router-dom";
+import "./MovieNavbar.css";
 
 function MovieNavbar() {
   return (
@@ -17,21 +17,15 @@ function MovieNavbar() {
         className="bg-opacity-10 bgNav"
       >
         <Container>
-          <Navbar.Brand className="movieNavBar" href="/">
-            <Link className="navHackflix" to={"/"}>
-              HACKFLIX
-            </Link>
+          <Navbar.Brand className="movieNavBar navHackflix" href="/">
+            HACKFLIX
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#features">
-                <Link className="navMovies" to={"/"}>
-                  Movies
-                </Link>
-              </Nav.Link>
-              <Nav.Link href="#pricing">Series</Nav.Link>
-              <Nav.Link href="#pricing">About us</Nav.Link>
+              <Nav.Link href={"/"}>Movies</Nav.Link>
+              <Nav.Link href={"/series"}>Series</Nav.Link>
+              <Nav.Link href={"/about"}>About us</Nav.Link>
             </Nav>
             <Nav>
               <NavDropdown title="User" id="collasible-nav-dropdown">

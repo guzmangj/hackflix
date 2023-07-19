@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import videoBg from "../assets/pexels-tima-miroshnichenko-7985887-4096x2160-25fps.mp4";
 
 function Header() {
@@ -9,10 +9,9 @@ function Header() {
           <video className="video-bg" src={videoBg} autoPlay loop muted />
         </div>
         <div className="content text-light">
-          <h1 className="title">¡Tus peliculas favoritas!</h1>
-          <p className="fs-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </p>
+          <h1 className="title w-75 text-center">
+            ¡Tus peliculas y series favoritas!
+          </h1>
         </div>
       </header>
     </>

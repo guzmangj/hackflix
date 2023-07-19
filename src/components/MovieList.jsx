@@ -1,10 +1,10 @@
-import InfiniteScroll from "react-infinite-scroll-component";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { Link } from "react-router-dom";
 
-function Movie({ rating, setMovies, movies }) {
+function MovieList({ rating, setMovies, movies }) {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -75,4 +75,4 @@ function Movie({ rating, setMovies, movies }) {
   );
 }
 
-export default Movie;
+export default MovieList;

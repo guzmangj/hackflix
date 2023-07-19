@@ -5,6 +5,7 @@ function Filter({ setRating }) {
   const handleRating = (rate) => {
     setRating(rate);
   };
+
   return (
     <div className="d-flex justify-content-center">
       <div className="d-flex align-items-center text-light my-3">
