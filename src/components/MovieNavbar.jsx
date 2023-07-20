@@ -24,7 +24,7 @@ function MovieNavbar() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href={"/"}>Movies</Nav.Link>
-              <Nav.Link href={"/series"}>Series</Nav.Link>
+              <Nav.Link href={"/tvshows"}>Series</Nav.Link>
               <Nav.Link href={"/about"}>About us</Nav.Link>
             </Nav>
             <Nav>

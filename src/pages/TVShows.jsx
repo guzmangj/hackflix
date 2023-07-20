@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import Filter from "../components/Filter";
 import Header from "../components/Header";
-import MovieList from "../components/MovieList";
-import "./Home.css";
+import TVShowsList from "../components/TVShowsList";
 
-function Home() {
+function Series() {
   const [rating, setRating] = useState(0);
-  const [movies, setMovies] = useState([]);
-  const [searchResult, setSearchResult] = useState(movies);
+  const [tvshows, setTvshows] = useState([]);
+  const [searchResult, setSearchResult] = useState(tvshows);
 
   return (
     <>
@@ -19,11 +18,15 @@ function Home() {
           <Filter setRating={setRating} />
         </div>
         <div className="fade-in">
-          <MovieList rating={rating} movies={movies} setMovies={setMovies} />
+          <TVShowsList
+            rating={rating}
+            tvshows={tvshows}
+            setTvshows={setTvshows}
+          />
         </div>
       </div>
     </>
   );
 }
 
-export default Home;
+export default Series;

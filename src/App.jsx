@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import MovieNavbar from "./components/MovieNavbar";
 import Pelicula from "./pages/Pelicula";
 import Error404 from "./pages/Error404";
+import TVShows from "./pages/TVShows";
+import TV from "./pages/TV";
 
 function App() {
   return (
@@ -11,11 +13,13 @@ function App() {
       <MovieNavbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/pelicula/:id" element={<Pelicula />} />
+        <Route path="/movie/:id" element={<Pelicula />} />
         <Route
           path="/movie/:id"
           element={<Navigate replace to="/pelicula/:id" />}
         />
+        <Route path="/tvshows" element={<TVShows />} />
+        <Route path="/tvshows/:id" element={<TV />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </>

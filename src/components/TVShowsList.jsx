@@ -5,53 +5,53 @@ import SearchBar from "./SearchBar";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Link } from "react-router-dom";
 
-function MovieList({ rating, setMovies, movies }) {
+function TVShowsList({ rating, setTvshows, tvshows }) {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
     setPage(1);
-    const getMovies = async () => {
+    const getTvshows = async () => {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/discover/movie?vote_average.gte=${
+          `https://api.themoviedb.org/3/discover/tv?vote_average.gte=${
             (rating - 1) * 2
           }&page=1&api_key=f1d02f62d0d4bc3ef480b7cf5aabfe87`
         );
-        setMovies(response.data.results);
+        setTvshows(response.data.results);
         setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
     };
-    getMovies();
+    getTvshows();
   }, [rating]);
 
   useEffect(() => {
-    const getMovies = async () => {
+    const getTvshows = async () => {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/discover/movie?vote_average.gte=${
+          `https://api.themoviedb.org/3/discover/tv?vote_average.gte=${
             (rating - 1) * 2
           }&page=${page}&api_key=f1d02f62d0d4bc3ef480b7cf5aabfe87`
         );
-        setMovies([...movies, ...response.data.results]);
+        setTvshows([...tvshows, ...response.data.results]);
       } catch (error) {
         console.log(error);
       }
     };
-    page > 1 && getMovies();
+    page > 1 && getTvshows();
   }, [page]);
 
   const updateKeyword = (keyword) => {
-    const filtered = movies.filter((movie) => {
-      return `${movie.original_title.toLowerCase()}`.includes(
+    const filtered = tvshows.filter((tv) => {
+      return `${tv.original_name.toLowerCase()}`.includes(
         keyword.toLowerCase()
       );
     });
     setKeyword(keyword);
-    setMovies(filtered);
+    setTvshows(filtered);
   };
 
   return isLoading ? (
@@ -61,9 +61,9 @@ function MovieList({ rating, setMovies, movies }) {
       </Spinner>
     </div>
   ) : (
-    movies && (
+    tvshows && (
       <InfiniteScroll
-        dataLength={movies.length}
+        dataLength={tvshows.length}
         next={() => setPage((prevPage) => prevPage + 1)}
         hasMore={true}
       >
@@ -71,16 +71,27 @@ function MovieList({ rating, setMovies, movies }) {
           <SearchBar keyword={keyword} onChange={updateKeyword} />
         </div>
         <div className="text-center">
-          {movies.map((movie, index) => {
+          {tvshows.map((tv, index) => {
             return (
-              <Link to={`/movie/${movie.id}`}>
-                <img
-                  className="moviePoster m-2"
-                  key={`${movie.id}-${index} `}
-                  src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                  alt={`${movie.original_title} poster`}
-                  variant="primary"
-                />
+              <Link to={`/tvshows/${tv.id}`}>
+                {tv.poster_path === null ? (
+                  <span
+                    key={`${tv.id}-${index} `}
+                    style={{
+                      height: "450px",
+                      width: "300px",
+                      backgroundColor: "black",
+                    }}
+                  ></span>
+                ) : (
+                  <img
+                    className="moviePoster m-2"
+                    key={`${tv.id}-${index} `}
+                    src={`https://image.tmdb.org/t/p/original/${tv.poster_path}`}
+                    alt={`${tv.original_name} poster`}
+                    variant="primary"
+                  />
+                )}
               </Link>
             );
           })}
@@ -90,4 +101,4 @@ function MovieList({ rating, setMovies, movies }) {
   );
 }
 
-export default MovieList;
+export default TVShowsList;
