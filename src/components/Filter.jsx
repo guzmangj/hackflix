@@ -11,7 +11,7 @@ function Filter({ setRating }) {
     <div className="d-flex justify-content-center">
       <div className="d-md-flex align-items-center text-light mt-3">
         <div className="text-center">
-          <p className="m-0 filter-text">Filtrar por valoración:</p>
+          <p className="m-0 filter-text">Filter by rating:</p>
         </div>
         <div className="mx-3 d-flex justify-content-center">
           <ReactStars

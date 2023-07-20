@@ -107,6 +107,7 @@ function TvShowDetails() {
                   <h1 className="fs-2 fw-bold m-0">
                     {tvshowData.original_name} ({tvshowData.first_air_date})
                   </h1>
+                  <h3>{tvshowData.tagline}</h3>
                 </div>
                 <div className="mt-4">
                   <h3 className="m-0 fs-4 fw-bold">Overview:</h3>
@@ -150,6 +151,15 @@ function TvShowDetails() {
                     )}
                     {tvshowData.original_language === "pl" && (
                       <p className="m-0 fs-6">Polish</p>
+                    )}
+                    {tvshowData.original_language === "pt" && (
+                      <p className="m-0 fs-6">Portuguese</p>
+                    )}
+                    {tvshowData.original_language === "hi" && (
+                      <p className="m-0 fs-6">Hindi</p>
+                    )}
+                    {tvshowData.original_language === "vi" && (
+                      <p className="m-0 fs-6">Vietnamese</p>
                     )}
                   </div>
                   <div className="mt-4">

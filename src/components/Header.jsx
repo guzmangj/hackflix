@@ -11,7 +11,7 @@ function Header() {
         </div>
         <div className="content text-light">
           <h1 className="title w-75 text-center">
-            ¡Tus peliculas y series favoritas!
+            Your favorite movies and series!
           </h1>
         </div>
       </header>
